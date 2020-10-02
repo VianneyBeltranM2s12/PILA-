@@ -1,0 +1,157 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package rt;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author VIANNEY 
+ */
+public class Rt {
+
+    int pilaA[] = new int[100];
+    int pilaB[] = new int[100];
+    int tope = 0;
+    int n;
+    //Pila A1
+
+    public void llenar() {
+
+        for (int i = 0; i < 100; i++) {
+            if (tope < 100) {
+                pilaA[tope] = n;
+                n++;
+                tope++;
+            } else {
+                System.out.println("pila llena");
+                break;
+            }
+        }
+        System.out.println("valores agregados");
+    }
+
+    public void mostrar() {
+        for (int i = tope - 1; i >= 0; i--) {
+            System.out.print(" " + pilaA[i]);
+        }
+    }
+
+    public void eliminar() {
+        tope--;
+        System.out.println("dato eliminado...");
+    }
+
+    public void agregar(char w) {
+        pilaA[tope] = w; //$ *
+        tope++;
+        System.out.println("dato agregado..");
+    }
+    //Terminar Pila A
+
+    //Pila B
+    public void llenarB() {
+
+        for (int i = 0; i < 100; i++) {
+            if (tope < 100) {
+                pilaB[tope] = n;
+                n++;
+                tope++;
+            } else {
+                System.out.println("pila llena");
+                break;
+            }
+        }
+        System.out.println("valores agregados");
+    }
+
+    public void mostrarB() {
+        for (int i = tope - 1; i >= 0; i--) {
+            System.out.print(" " + pilaB[i]);
+        }
+    }
+
+    public void eliminarB() {
+        tope--;
+        System.out.println("dato eliminado...");
+    }
+
+    public void agregarB(char w) {
+        pilaB[tope] = w; //$ *
+        tope++;
+        System.out.println("dato agregado..");
+    }
+    //Termina Pila B
+
+    public static void main(String[] args) {
+        Rt c = new Rt();
+        Scanner sc = new Scanner(System.in);
+        int opt = 0;
+        int opcion = 0;
+        do {
+            Scanner teclado = new Scanner(System.in);
+            opcion = 0;
+            System.out.println("------ MENU --------");
+            System.out.println("1. Pila A. ");
+            System.out.println("2. Pila B. ");
+            System.out.println("2. Pila C. ");
+            System.out.println("Elije la opcion deseada: ");
+            opcion = teclado.nextInt();
+        } while (opcion > 3);
+        switch (opcion) {
+            case 1:
+                do {
+                    System.out.println("\n1 llenar\n"
+                            + "2 mostrar\n"
+                            + "3 eliminar\n"
+                            + "4 agregar"
+                            + "5 Ordenar\n"
+                            + "5 salir\n");
+                    switch (opt = sc.nextInt()) {
+                        case 1:
+                            c.llenar();
+                            break;
+                        case 2:
+                            c.mostrar();
+                            break;
+                        case 3:
+                            c.eliminar();
+                            break;
+                        case 4:
+                            System.out.println("ingresa el dato");
+                            char w = sc.next().charAt(0);
+                            c.agregar(w);
+                            break;
+                    }
+                } while (opt != 5);
+            case 2:
+                do {
+                    System.out.println("\n1 llenar\n"
+                            + "2 mostrar\n"
+                            + "3 eliminar\n"
+                            + "4 agregar"
+                            + "5 Ordenar\n"
+                            + "5 salir\n");
+                    switch (opt = sc.nextInt()) {
+                        case 1:
+                            c.llenarB();
+                            break;
+                        case 2:
+                            c.mostrarB();
+                            break;
+                        case 3:
+                            c.eliminarB();
+                            break;
+                        case 4:
+                            System.out.println("ingresa el dato");
+                            char w = sc.next().charAt(0);
+                            c.agregar(w);
+                            break;
+                    }
+                } while (opt != 5);
+        }
+    }
+}
